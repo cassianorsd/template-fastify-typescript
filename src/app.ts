@@ -1,11 +1,10 @@
-import fastify from 'fastify';
+import fastify, { FastifyInstance } from 'fastify';
+import routes from './routes';
 
-const app = fastify({
+const app: FastifyInstance = fastify({
   logger: true,
 });
 
-app.get('/', (req, res) => {
-  res.send({ teste: 'fdsfd' });
-});
+app.register(routes);
 
 export default app;
